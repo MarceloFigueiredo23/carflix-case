@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Carflix · Marcos e monetizações | V4 Farmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wdth,wght@75..100,500;75..100,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens-relatorios-v4.css">
+  <style>
+    .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .tag { display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: rgba(255,255,255,.1); }
+    .tag.good { color: var(--safe); }
+    .tag.warn { color: var(--care); }
+    .tag.bad { color: var(--danger); }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .panel {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-table);
+      background: var(--surface-glass-soft);
+    }
+    .panel h3 { margin: 0 0 10px; font-size: 1.35rem; }
+    .panel p, .panel li { color: var(--text-muted); font-size: 14px; line-height: 1.45; }
+    .panel ul { margin: 0; padding-left: 18px; }
+    .panel li { margin-bottom: 8px; }
+    .timeline { display: grid; gap: 10px; margin: 14px 0 8px; }
+    .tl {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(59,0,0,.24);
+    }
+    .tl time {
+      color: var(--accent-gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tl strong { display: block; margin-bottom: 4px; font-stretch: 85%; }
+    .tl span { color: var(--text-muted); font-size: 14px; line-height: 1.4; }
+    .bars { display: grid; gap: 12px; margin: 16px 0; }
+    .bar-row { display: grid; grid-template-columns: 110px 1fr 90px; gap: 12px; align-items: center; }
+    .bar-row label { font-size: 13px; color: var(--text-muted); }
+    .bar-track {
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(59,0,0,.35);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-yellow), var(--accent-gold));
+    }
+    .bar-row .val { text-align: right; font-weight: 700; font-stretch: 85%; }
+    .src { font-size: .78rem; color: var(--text-muted); margin-top: 10px; }
+    .callout.ok {
+      border-color: rgba(99,212,113,.44);
+      background: linear-gradient(135deg, rgba(99,212,113,.16), rgba(59,0,0,.34));
+    }
+    .callout.warn {
+      border-color: rgba(255,209,102,.44);
+      background: linear-gradient(135deg, rgba(255,209,102,.16), rgba(59,0,0,.34));
+    }
+    .cards .metric-number {
+      font-size: clamp(24px, 3vw, 42px);
+      overflow-wrap: anywhere;
+    }
+    footer.report-foot {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .two, .bar-row, .tl { grid-template-columns: 1fr; }
+      .bar-row .val { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">
+        <img src="./assets/v4-company-logo-branca-oficial.svg" alt="V4 Company">
+      </span>
+      Case Carflix · Marcos e monetizações
+    </div>
+    <nav class="nav-pills">
+      <a href="#veredito">Veredito</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#monetizacoes">Monetizações</a>
+      <a href="#fee">Fee</a>
+      <a href="#resultado">Resultado</a>
+      <a href="#aprendizados">Aprendizados</a>
+    </nav>
+  </header>
+
+  <main class="report-shell">
+    <section class="hero" id="veredito">
+      <div class="hero-card hero-watermark" data-watermark="CIVA">
+        <div class="eyebrow">Exclusive · Base Ativa · Mai/2025 → Ago/2026</div>
+        <h1>Whale Carflix: R$ 191,7k de TCV em 4 expansões.</h1>
+        <p>
+          Entrou em maio/2025, monetizou na janela de ouro, escalou fee para R$ 28k
+          após o whale de fevereiro e voltou a fechar forte em julho (R$ 84k TCV,
+          39% do ciclo BA). Break-even atingido e meta de vendas batida sustentam
+          a conversa de expansão.
+        </p>
+      </div>
+      <aside class="verdict glass">
+        <div>
+          <div class="eyebrow">Veredito executivo</div>
+          <strong>R$ 191,7k</strong>
+          <span>TCV acumulado de expansão BA (4 deals fechados). Fee atual R$ 28.000 · LT 14 · flag Care · NPS 10 · BE ok.</span>
+        </div>
+        <div class="pill">Status: whale ativa · vigiar SDR IA</div>
+      </aside>
+    </section>
+
+    <div class="cards">
+      <div class="metric">
+        <div class="metric-label">Fee atual</div>
+        <div class="metric-number">R$ 28k</div>
+        <small>Cockpit CIVA · update manual 08/04/2026</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">TCV expansão</div>
+        <div class="metric-number safe">R$ 191,7k</div>
+        <small>Soma dos 4 fechamentos BA</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Whale jul/2026</div>
+        <div class="metric-number">39%</div>
+        <small>R$ 84k de ~R$ 214k TCV BA do ciclo</small>
+      </div>
+      <div class="metric">
+        <div class="metric-label">LT / Flag</div>
+        <div class="metric-number care">14 · Care</div>
+        <small>NPS 10 · Customer Care Saudável</small>
+      </div>
+    </div>
+
+    <section class="callout ok">
+      <div class="eyebrow">Mensagem para gestão</div>
+      <h2>Case de expansão com resultado, não só ticket.</h2>
+      <p>
+        Carflix prova que aumento de escopo Executar escala quando há BE e meta
+        batida. Flag oscilou em Critical/Danger em junho e o close de julho
+        aconteceu mesmo assim. O ponto de atenção agora é o SDR IA (intenção de
+        cancelamento no ROPRE 31/07), não a operação de mídia.
+      </p>
+    </section>
+
+    <section id="conta">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Conta</div>
+          <h2>Quem é a Carflix hoje.</h2>
+        </div>
+        <p>Ticker CIVA · squad Exclusive · coord. Vitor Neres · Farmer Marcelo.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h3>Cadastro</h3>
+          <ul>
+            <li>CARFLIX INTERMEDIAÇÃO DE VEÍCULOS AUTOMOTORES S.A.</li>
+            <li>CNPJ 27.750.422/0001-30 · Automotivo B2C / Inside Sales</li>
+            <li>Entrada contrato ~15/05/2025 · start Cockpit 27/05/2025</li>
+            <li>Produto base: Assessoria Byline · Ekyte 222280</li>
+            <li>Stack: Mídia · SEO · SDR IA · Social · Copy · Design</li>
+            <li>CRM do cliente: RD + interno + Salesforce</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Time V4</h3>
+          <ul>
+            <li>Coordenador: vitor.neres</li>
+            <li>Account: thaina.carvalho</li>
+            <li>PM: lucas.isaque</li>
+            <li>Tráfego: jonatas.ferreira</li>
+            <li>Social: luamateus.mkt · Copy: wylkerson · Design: dennys.caldeira</li>
+            <li>Farmer BA: Marcelo Figueiredo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Timeline</div>
+          <h2>Marcos do projeto.</h2>
+        </div>
+        <p>Do onboarding ao whale de julho e ao satélite Uberlândia.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl">
+          <time>15–27/05/2025</time>
+          <div>
+            <strong>Entrada na V4</strong>
+            <span>Contrato inicial e projeto CIVA no Cockpit. Exclusive. Assessoria Byline.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>Mai–Jun/2025</time>
+          <div>
+            <strong>Janela de ouro monetizada</strong>
+            <span>Duas fechadas com Thais em ~45 dias: aumento de escopo (R$ 8k TCV) + SDR IA (R$ 3,7k). Fee CRM em R$ 16.542.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>Ago–Nov/2025</time>
+          <div>
+            <strong>Relacionamento e NPS alto</strong>
+            <span>CSAT Matriz NPS 10. Dor: atender franqueados com custo acessível. Opp Videomaker/LeadBroker ficou fria.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>20/02/2026</time>
+          <div>
+            <strong>Whale #1 · +R$ 8k × 12</strong>
+            <span>Marcelo fecha aumento de escopo. TCV R$ 96.000. Assina 19/02.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>08/04/2026</time>
+          <div>
+            <strong>Fee sobe para R$ 28.000</strong>
+            <span>Update manual no Cockpit (HOPS tinha R$ 20.142). Conta vira âncora de ticket Exclusive.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>Mai/2026</time>
+          <div>
+            <strong>Break-even atingido</strong>
+            <span>Flag BE = true em 18/05. Meta de vendas e receita de tráfego passam a sustentar expansão.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>Jun/2026</time>
+          <div>
+            <strong>Oscilação de flag</strong>
+            <span>Semanas em Critical/Danger sem derrubar a conta. Volta a Safe em 24/07 e Care em 01/08.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>21–27/07/2026</time>
+          <div>
+            <strong>Whale #2 · +R$ 14k × 6</strong>
+            <span>TTC 6 dias. TCV R$ 84.000. Pagamento misto: boleto R$ 72k + cartão R$ 12k. 39% do TCV BA do ciclo.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>31/07/2026</time>
+          <div>
+            <strong>ROPRE + alerta SDR IA</strong>
+            <span>Satisfeitos com resultado geral. Renilson sinaliza cancelamento do SDR IA. NPS 10 no mesmo dia; dor em campanhas de franqueados fora de SP.</span>
+          </div>
+        </div>
+        <div class="tl">
+          <time>31/07–03/08/2026</time>
+          <div>
+            <strong>Carflix Uberlândia (unidade)</strong>
+            <span>Win aquisição 31/07. Onboarding Mídia fee R$ 2.009. CNPJ distinto. Rede com 10 unidades no checklist Farmer.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="monetizacoes">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Monetizações</div>
+          <h2>Quatro fechamentos BA.</h2>
+        </div>
+        <p>Fonte: CRM expansão / lead-score deals + funil BA jul/2026.</p>
+      </div>
+
+      <div class="bars" aria-label="TCV por fechamento">
+        <div class="bar-row">
+          <label>31/05/2025</label>
+          <div class="bar-track"><div class="bar-fill" style="width:4.2%"></div></div>
+          <div class="val">R$ 8k</div>
+        </div>
+        <div class="bar-row">
+          <label>30/06/2025</label>
+          <div class="bar-track"><div class="bar-fill" style="width:1.9%"></div></div>
+          <div class="val">R$ 3,7k</div>
+        </div>
+        <div class="bar-row">
+          <label>20/02/2026</label>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <div class="val">R$ 96k</div>
+        </div>
+        <div class="bar-row">
+          <label>27/07/2026</label>
+          <div class="bar-track"><div class="bar-fill" style="width:87.5%"></div></div>
+          <div class="val">R$ 84k</div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Assinatura</th>
+              <th>Produto</th>
+              <th>Farmer</th>
+              <th>MRR / booking</th>
+              <th class="num">TCV</th>
+              <th>Fee no snap</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>31/05/2025</td>
+              <td>Aumento de escopo</td>
+              <td>Thais</td>
+              <td>R$ 3.600 (mix)</td>
+              <td class="num">R$ 8.000</td>
+              <td>R$ 16.542</td>
+              <td class="muted">Primeira expansão na entrada</td>
+            </tr>
+            <tr>
+              <td>30/06/2025</td>
+              <td>SDR IA</td>
+              <td>Thais</td>
+              <td>R$ 3.700</td>
+              <td class="num">R$ 3.700</td>
+              <td>R$ 16.542</td>
+              <td class="muted">Hoje em risco de churn</td>
+            </tr>
+            <tr>
+              <td>20/02/2026</td>
+              <td>Aumento de escopo</td>
+              <td>Marcelo</td>
+              <td>R$ 8.000 × 12</td>
+              <td class="num safe">R$ 96.000</td>
+              <td>R$ 16.542</td>
+              <td class="muted">Whale #1 · assina 19/02</td>
+            </tr>
+            <tr>
+              <td>27/07/2026</td>
+              <td>Aumento de escopo</td>
+              <td>Marcelo</td>
+              <td>R$ 14.000 × 6</td>
+              <td class="num safe">R$ 84.000</td>
+              <td>R$ 28.000</td>
+              <td class="muted">Whale #2 · TTC 6d · 39% BA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">TCV total expansão = R$ 191.700. Cards Expansion com R$ 20k × 6 / TCV R$ 120k parecem desatualizados vs o fechamento de R$ 14k × 6.</p>
+    </section>
+
+    <section id="fee">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Fee</div>
+          <h2>Evolução reconstruída.</h2>
+        </div>
+        <p>LOCF do Cockpit espelha o fee atual no passado. Usar snaps CRM + update manual.</p>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Período</th>
+              <th>Fee</th>
+              <th>Evidência</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mai–Jul/2025</td>
+              <td>R$ 16.542</td>
+              <td class="muted">CRM nos deals de 31/05 e 30/06 · fee_última_alteração 14/07/2025</td>
+            </tr>
+            <tr>
+              <td>Fev/2026 (no fechamento)</td>
+              <td>R$ 16.542</td>
+              <td class="muted">Snap do deal 20/02 (ainda pré-ajuste)</td>
+            </tr>
+            <tr>
+              <td>Import HOPS (fev/2026)</td>
+              <td>R$ 20.142</td>
+              <td class="muted">importedValue no fee do projeto</td>
+            </tr>
+            <tr>
+              <td>08/04/2026 → hoje</td>
+              <td class="safe">R$ 28.000</td>
+              <td class="muted">manualValue / Cockpit atual · plano MRR “Aumento fev/26”</td>
+            </tr>
+            <tr>
+              <td>Pós 27/07/2026</td>
+              <td class="care">A validar</td>
+              <td class="muted">Se +R$ 14k MRR entrou, fee esperado ~R$ 42k</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <section class="callout warn" style="margin-top:16px">
+        <div class="eyebrow">Gap de cadastro</div>
+        <h2>Fee Cockpit pode estar defasado pós-jul.</h2>
+        <p>Deal de 27/07 adicionou R$ 14.000 × 6 (TCV R$ 84k), mas o fee no Cockpit segue R$ 28.000. Validar se o upsell já entrou na fatura.</p>
+      </section>
+    </section>
+
+    <section id="resultado">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Resultado</div>
+          <h2>Operação acima da meta.</h2>
+        </div>
+        <p>Cockpit health-score · ciclo atual (leitura 03/08/2026).</p>
+      </div>
+      <div class="cards">
+        <div class="metric">
+          <div class="metric-label">Vendas</div>
+          <div class="metric-number safe">351 / 300</div>
+          <small>Meta batida</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Receita tráfego</div>
+          <div class="metric-number safe">R$ 226,8k</div>
+          <small>Meta R$ 216k</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">SQL</div>
+          <div class="metric-number">1.079</div>
+          <small>Meta 650</small>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Break-even</div>
+          <div class="metric-number safe">Atingido</div>
+          <small>Flag BE true desde mai/2026</small>
+        </div>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h3>O que sustenta expansão</h3>
+          <ul>
+            <li>BE atingido + meta de vendas batida</li>
+            <li>NPS 10 e Customer Care Saudável</li>
+            <li>Play repetível: aumento de escopo Executar</li>
+            <li>Ciclo curto no whale de jul (6 dias)</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Riscos a vigiar</h3>
+          <ul>
+            <li>SDR IA com intenção de cancelamento (Renilson)</li>
+            <li>Campanhas de franqueados fora de SP (dor de NPS/MHS)</li>
+            <li>Cards Expansion desatualizados</li>
+            <li>Fee Cockpit possivelmente defasado pós-jul</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="aprendizados">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Aprendizados</div>
+          <h2>O que replicar (e o que não).</h2>
+        </div>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h3>Replicar</h3>
+          <ul>
+            <li>Monetizar na entrada e voltar a escalar no LT 9 e LT 14 com o mesmo play.</li>
+            <li>Usar BE e meta batida como evidência, não “salvar” a conta.</li>
+            <li>Não bloquear expansão só pela flag quando resultado está ok.</li>
+            <li>Fechar com TTC curto e pagamento misto quando o ticket é alto.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Não celebrar cego</h3>
+          <ul>
+            <li>1 conta não pode ser 39% do TCV BA como padrão (concentração).</li>
+            <li>Produto satélite (SDR IA) com percepção ruim precisa debrief antes de novo upsell no mesmo eixo.</li>
+            <li>Documentar fee após cada whale para o Cockpit não mentir o FII.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="report-foot">
+      Fontes: Cockpit CIVA (laqos8ktmv14ih6i0g7007i8) · CRM expansão / lead_score_deals · funil BA jul/2026 · plano MRR jun/2026 · debrief ago/2026 · BigQuery calls CIVA.
+      Gerado 03/08/2026 · uso interno Farmer / gestão Colli&amp;Co.
+    </footer>
+  </main>
+</body>
+</html>
