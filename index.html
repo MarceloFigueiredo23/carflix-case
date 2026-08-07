@@ -222,13 +222,23 @@ td.num { font-variant-numeric: tabular-nums; }
 }
 .channel-card p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--text-muted); }
 
-.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.unit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 .unit-card {
-  padding: 16px; border: 1px solid var(--line); border-radius: 18px;
-  background: var(--surface-glass-soft); text-align: center;
+  padding: 16px 14px; border: 1px solid var(--line); border-radius: 18px;
+  background: var(--surface-glass-soft); text-align: left;
 }
-.unit-card .u-name { font-weight: 700; font-size: 14.5px; }
-.unit-card .u-line { color: var(--text-muted); font-size: 12px; margin-top: 4px; }
+.unit-card .u-name { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
+.unit-card .u-line { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; line-height: 1.35; }
+.unit-card .u-fee { margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--accent-gold); font-variant-numeric: tabular-nums; }
+.unit-card .u-tag {
+  display: inline-flex; margin-top: 10px; padding: 4px 8px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(99,212,113,0.12); color: var(--safe);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.unit-card .u-tag.build { background: rgba(255,209,102,0.12); color: var(--care); }
+.unit-note {
+  margin-top: 14px; color: var(--text-muted); font-size: 13.5px; line-height: 1.45;
+}
 
 .quote-card {
   padding: 26px 28px; border-radius: var(--radius-card); border: 1px solid var(--line);
@@ -377,7 +387,7 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
               <td class="num">10</td>
               <td class="num">10</td>
               <td class="num">10</td>
-              <td class="muted">Promotor consistente. Dor aberta: franqueados fora de SP.</td>
+              <td class="muted">Promotor consistente. Expansão via franqueados (6 unidades com a V4).</td>
             </tr>
           </tbody>
         </table>
@@ -556,32 +566,59 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
     <section id="rede">
       <div class="section-head">
         <div>
-          <div class="eyebrow">Rede de unidades</div>
-          <h2>10 unidades no radar. Uberlândia já em onboarding.</h2>
+          <div class="eyebrow">Unidades expandidas com a V4</div>
+          <h2>6 unidades franqueadas já com a V4.</h2>
         </div>
-        <p>A parceria cresce com a rede: matriz + franqueados, com satélite novo em ago/2026.</p>
+        <p>Além da matriz (CIVA), a parceria escala com franqueados: cada unidade entra com operação de mídia própria.</p>
       </div>
 
       <div class="unit-grid">
-        <div class="unit-card"><div class="u-name">Botucatu</div><div class="u-line">Daniel</div></div>
-        <div class="unit-card"><div class="u-name">Morumbi</div><div class="u-line">Rafael</div></div>
-        <div class="unit-card"><div class="u-name">Ribeirão Preto</div><div class="u-line">Rodrigo</div></div>
-        <div class="unit-card"><div class="u-name">Vila Mariana</div><div class="u-line">Ricardo</div></div>
-        <div class="unit-card"><div class="u-name">Brooklin</div><div class="u-line">Alan</div></div>
-        <div class="unit-card"><div class="u-name">Jabaquara</div><div class="u-line">Wolff</div></div>
-        <div class="unit-card"><div class="u-name">Uberlândia</div><div class="u-line">Onboarding · fee R$ 2.009</div></div>
-        <div class="unit-card"><div class="u-name">Santo André</div><div class="u-line">Álvaro</div></div>
-        <div class="unit-card"><div class="u-name">Interlagos</div><div class="u-line">Samuel</div></div>
-        <div class="unit-card"><div class="u-name">Brasília</div><div class="u-line">Lucas</div></div>
+        <div class="unit-card">
+          <div class="u-name">Botucatu</div>
+          <div class="u-line">Franqueado · Daniel</div>
+          <div class="u-fee">Fee R$ 2.009</div>
+          <div class="u-tag">Com a V4</div>
+        </div>
+        <div class="unit-card">
+          <div class="u-name">Ribeirão Preto</div>
+          <div class="u-line">Franqueado · Rodrigo</div>
+          <div class="u-fee">Fee R$ 2.009</div>
+          <div class="u-tag">Com a V4</div>
+        </div>
+        <div class="unit-card">
+          <div class="u-name">Interlagos</div>
+          <div class="u-line">Franqueado · Samuel</div>
+          <div class="u-fee">Fee R$ 3.504</div>
+          <div class="u-tag">Com a V4</div>
+        </div>
+        <div class="unit-card">
+          <div class="u-name">Jabaquara</div>
+          <div class="u-line">Franqueado · Wolff</div>
+          <div class="u-fee">Fee R$ 2.009</div>
+          <div class="u-tag">Com a V4</div>
+        </div>
+        <div class="unit-card">
+          <div class="u-name">Uberlândia</div>
+          <div class="u-line">Franqueado · Wolff</div>
+          <div class="u-fee">Fee R$ 2.009</div>
+          <div class="u-tag">Com a V4</div>
+        </div>
+        <div class="unit-card">
+          <div class="u-name">Brasília</div>
+          <div class="u-line">Franqueado · Lucas</div>
+          <div class="u-fee">Fee R$ 2.009</div>
+          <div class="u-tag build">Onboarding</div>
+        </div>
       </div>
+      <p class="unit-note">Rede em conversa com outros franqueados (Morumbi, Vila Mariana, Brooklin, Santo André). Play da conta: resultado na matriz abre unidade com a V4.</p>
 
       <section class="callout warm" style="margin-top:16px;">
-        <div class="eyebrow">Próximo ciclo da rede</div>
-        <h2 style="font-size: clamp(22px, 3.2vw, 32px);">Franqueados fora de SP pedem mais performance.</h2>
+        <div class="eyebrow">Modelo de expansão</div>
+        <h2 style="font-size: clamp(22px, 3.2vw, 32px);">Trabalhando com franqueados, unidade a unidade.</h2>
         <p>
-          Feedback recorrente de NPS/CSAT: melhorar campanhas dos franqueados
-          fora do estado de São Paulo. É a ponte natural entre resultado da
-          matriz e expansão de unidades.
+          A V4 não escala só o fee da matriz. Abre operação com o franqueado,
+          fee local de mídia e o mesmo padrão de entrega. Ago/2026: seis unidades
+          já no Cockpit, além do CIVA.
         </p>
       </section>
     </section>
@@ -645,7 +682,7 @@ footer.method { margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
             <tr><td>Social Media</td><td><span class="tag good">Ativo</span></td><td class="muted">Time dedicado na conta</td></tr>
             <tr><td>Copy + Design</td><td><span class="tag good">Ativo</span></td><td class="muted">Produção contínua</td></tr>
             <tr><td>SDR IA</td><td><span class="tag bad">Em risco</span></td><td class="muted">Cliente sinalizou cancelamento</td></tr>
-            <tr><td>Carflix Uberlândia</td><td><span class="tag build">Onboarding</span></td><td class="muted">Unidade · Mídia fee R$ 2.009</td></tr>
+            <tr><td>Unidades franqueadas (6)</td><td><span class="tag good">Com a V4</span></td><td class="muted">Botucatu, Ribeirão, Interlagos, Jabaquara, Uberlândia, Brasília</td></tr>
           </tbody>
         </table>
       </div>
